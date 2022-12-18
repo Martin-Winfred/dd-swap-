@@ -16,6 +16,8 @@ echo "3) Enable Swap"
 
 echo "4) Unstall Swap"
 
+echo "5) Clear Swap"
+
 echo "0) Exit"
 read choise
 
@@ -38,6 +40,12 @@ function uninstallSwap() (
     clear
     swapoff /mnt/swap
     rm /mnt/swap
+    bash menu.sh
+)
+
+function restartSwap() (
+    swapoff -a
+    swapon -a
     bash menu.sh
 )
 
@@ -67,6 +75,8 @@ case $choise in
     onSwap;;
     4)
     uninstallSwap;;
+    5)
+    restartSwap;;
     0)
     echo "Bye"
     exit 1;;
