@@ -1,7 +1,11 @@
 #!/bin/bash
 #Identify USER
 if [ $EUID -ne 0 ]; then
+<<<<<<< HEAD
     echo -e "This script must be run as root\nAnd does not start with sudo command" 1>&2
+=======
+    echo "This script must be run as root" 1>&2
+>>>>>>> upstream/main
     exit 1
 fi
 
@@ -21,6 +25,15 @@ echo "5) Clear Swap"
 echo "0) Exit"
 read choise
 
+<<<<<<< HEAD
+=======
+#createSwap
+function createSwap() (
+    clear
+    bash $(pwd)/ddswap.sh -D
+)
+
+>>>>>>> upstream/main
 #offSwap
 function offSwap() (
     clear
@@ -32,7 +45,11 @@ function offSwap() (
 function onSwap() (
     clear
     swapon /mnt/swap
+<<<<<<< HEAD
     bash menu.sh
+=======
+    free -h
+>>>>>>> upstream/main
 )
 
 #uninstallSwap
